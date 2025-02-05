@@ -15,14 +15,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
     - uses: actions/checkout@v4
-    - name: Setup .NET
+    - name: Setup dotnet
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 9.0.102
-    - name: Restore dependencies
+        dotnet-version: '9.0.102'
+    - name: Install dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build
+    - name: Test with the dotnet CLI
+      run: dotnet test
+
+#test
